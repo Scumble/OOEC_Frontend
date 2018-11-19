@@ -1,0 +1,33 @@
+<!DOCTYPE html>  
+<html>  
+  
+<head>  
+    <meta charset="utf-8" />  
+    <title></title>  
+</head>  
+  
+<body>  
+    <h1>{{title}}</h1>  
+    <h3>Tournament</h3>  
+    <hr />  
+    <form [formGroup]="tournamentForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>  
+        <div class="form-group row"> <label class=" control-label col-md-12" for="Place">Place</label>  
+            <div class="col-md-4"> <input class="form-control" type="text" formControlName="place"> </div> <span class="text-danger" *ngIf="tournamentForm.hasError('required', 'place') && formDir.submitted">  
+Place is required.  
+</span> </div>  
+        <div class="form-group row"> <label class=" control-label col-md-12" for="PrizePool">Prize pool</label>  
+            <div class="col-md-4"> <input class="form-control" type="text" formControlName="prizePool"> </div> <span class="text-danger" *ngIf="tournamentForm.hasError('required', 'prizePool') && formDir.submitted">  
+Prize Pool is required.  
+</span> </div>  
+        <div class="form-group row"> <label class="control-label col-md-12" for="TournamentName">Tournament Name</label>  
+            <div class="col-md-4"> <input class="form-control" type="text" formControlName="tournamentName"> </div> <span class="text-danger" *ngIf="tournamentForm.hasError('required', 'tournamentName') && formDir.submitted">  
+Tournament Name is required  
+</span> </div>  
+        <div class="form-group row"> <label class="control-label col-md-12" for="Type">Type</label>  
+            <div class="col-md-4"> <input class="form-control" type="text" formControlName="type"> </div> <span class="text-danger" *ngIf="tournamentForm.hasError('required', 'type') && formDir.submitted">  
+Type is required  
+</span></div>
+<div class="form-group"> <button type="submit" class="btn btn-default">Save</button> <button class="btn" (click)="cancel()">Cancel</button> </div>  
+    </form>  
+</body>  
+</html>  

@@ -1,0 +1,26 @@
+<h1>Tournament Data</h1>  
+<p>This component demonstrates fetching Tournament data from the server.</p>  
+<p *ngIf="!tournamentlist"><em>Loading...</em></p>  
+<p> <a [routerLink]="['/addtournament']">Create New</a> </p>  
+<table class='table table-bordered' *ngIf="tournamentlist">  
+    <thead style="background-color:green;font-weight:bold;color:white;">  
+        <tr>  
+            <th>TournamentID</th>  
+            <th>TournamentName</th>  
+            <th>Place</th>  
+            <th>Type</th>  
+            <th>PrizePool</th>
+            <th>Actions</th>     
+        </tr>  
+    </thead>  
+    <tbody>  
+        <tr *ngFor="let tour of tournamentlist">  
+            <td>{{ tour.id }}</td>  
+            <td>{{ tour.tournamentName}}</td>  
+            <td>{{ tour.place }}</td>  
+            <td>{{ tour.type }}</td>  
+            <td>{{ tour.prizePool }}</td>   
+            <td> <a [routerLink]="['/tournament/edit/',tour.id]">Edit</a> | <a [routerLink]="" (click)="deleteTournament(tour.id)">Delete</a> </td>  
+        </tr>  
+    </tbody>  
+</table> 
