@@ -1,5 +1,4 @@
 <h1>Tournament Data</h1>  
-<p>This component demonstrates fetching Tournament data from the server.</p>  
 <p *ngIf="!tournamentlist"><em>Loading...</em></p>  
 <p> <a [routerLink]="['/addtournament']">Create New</a> </p>  
 <table class='table table-bordered' *ngIf="tournamentlist">  
@@ -10,6 +9,10 @@
             <th>Place</th>  
             <th>Type</th>  
             <th>PrizePool</th>
+            <th>DateStart</th>
+            <th>DateEnd</th>
+            <th>Description</th>
+            <th>Game</th>
             <th>Actions</th>     
         </tr>  
     </thead>  
@@ -19,8 +22,12 @@
             <td>{{ tour.tournamentName}}</td>  
             <td>{{ tour.place }}</td>  
             <td>{{ tour.type }}</td>  
-            <td>{{ tour.prizePool }}</td>   
-            <td> <a [routerLink]="['/tournament/edit/',tour.id]">Edit</a> | <a [routerLink]="" (click)="deleteTournament(tour.id)">Delete</a> </td>  
+            <td>{{ tour.prizePool }}</td>  
+            <td>{{ tour.dateStart }}</td>
+            <td>{{ tour.dateEnd }}</td>
+            <td>{{ tour.description }}</td>
+            <td>{{ tour.game }}</td>         
+            <td> <a [routerLink]="['/tournament/edit/',tour.id]">Edit</a> | <a [routerLink]="" (click)="deleteTournament(tour.id)">Delete</a> | <a  [routerLink]="['/lobby/getcreatedbytournament/',tour.id]">Show lobby</a> |  <a  [routerLink]="['/teams']">Show teams</a>  </td>  
         </tr>  
     </tbody>  
 </table> 

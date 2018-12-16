@@ -1,0 +1,23 @@
+<h1>Teams</h1>  
+<p *ngIf="!teamlist"><em>Loading...</em></p>  
+<p> <a [routerLink]="['/addteam']">Create New</a> </p>  
+<table class='table table-bordered' *ngIf="teamlist">  
+    <thead style="background-color:green;font-weight:bold;color:white;">  
+        <tr>  
+            <th>TeamID</th>  
+            <th>TeamName</th>  
+            <th>Tag</th>  
+            <th>NumberOfPlayers</th>     
+            <th>Actions</th>
+        </tr>  
+    </thead>  
+    <tbody>  
+        <tr *ngFor="let team of teamlist">  
+            <td>{{ team.id }}</td>  
+            <td>{{ team.teamName}}</td>  
+            <td>{{ team.tag }}</td>  
+            <td>{{ team.numberOfPlayers }}</td>      
+            <td> <a [routerLink]="['/tournament/edit/',team.id]">Edit</a> | <a [routerLink]="" (click)="deleteTeam(team.id)">Delete</a> </td>  
+        </tr>  
+    </tbody>  
+</table> 

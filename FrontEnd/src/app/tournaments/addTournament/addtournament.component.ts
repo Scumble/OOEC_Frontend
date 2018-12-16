@@ -40,7 +40,15 @@ export class AddTournament implements OnInit {
             place: ['', [Validators.required]],  
             prizePool: ['', [Validators.required]],  
             tournamentName: ['', [Validators.required]],  
-            type: ['', [Validators.required]]
+            type: ['', [Validators.required]],
+            dateStart:['',[Validators.required]],
+            dateEnd:['',[Validators.required]],
+            description:['',[Validators.required]],
+            game:['',[Validators.required]],
+            identityId:[''],
+            identity:[],
+            lobbies:[]
+        
         })  
     }  
     ngOnInit() {  
@@ -78,4 +86,16 @@ export class AddTournament implements OnInit {
     get type() {  
         return this.tournamentForm.get('type');  
     }  
+    get dateStart() {
+        return this.tournamentForm.get('dateStart');  
+    }
+    get dateEnd() {
+        return this.tournamentForm.get('dateEnd');  
+    }
+    get description() {
+        return this.tournamentForm.get('description');  
+    }
+    get game() {
+        return this.tournamentForm.get('game');  
+    }
 }  

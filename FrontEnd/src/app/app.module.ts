@@ -19,20 +19,25 @@ import {TournamentModule} from './tournaments/tournamentdata.module';
 import { StreamModule } from './stream/stream.module';
 import { UserModule } from './users/user.module';
 import { ConfigService } from './shared/utils/config.service';
+import { LobbyModule } from './lobbies/lobbies.module';
+import { TeamModule } from './teams/teams.module';
+import { SharedModule } from './shared/modules/shared.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    HomeComponent   
+    HomeComponent,
   ],
   imports: [
     AccountModule,
     DashboardModule,
     TournamentModule,
     UserModule,
+    TeamModule,
     StreamModule,
+    LobbyModule,
     BrowserModule,
     FormsModule,
     HttpModule,

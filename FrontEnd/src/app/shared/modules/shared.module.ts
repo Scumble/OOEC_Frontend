@@ -1,19 +1,20 @@
-// include directives/components commonly used in features modules in this shared modules
-// and import me into the feature module
-// importing them individually results in: Type xxx is part of the declarations of 2 modules: ... Please consider moving to a higher module...
-// https://github.com/angular/angular/issues/10646  
-
 import { NgModule }           from '@angular/core';
 import { CommonModule }       from '@angular/common';
- 
 import { myFocus } from '../../directives/focus.directive';
 import {SpinnerComponent} from '../../spinner/spinner.component';  
-
+import { LobbiesComponent } from 'src/app/lobbies/lobbies.component';
+import { AuthGuard } from 'src/app/auth.guard';
+import { LobbyService } from 'src/app/services/lobbies.services';
+import { RouterModule } from '@angular/router';
+import { TournamentDataComponent } from 'src/app/tournaments/tournamentdata.component';
+import { AddLobby } from 'src/app/lobbies/addlobby/addlobby.component';
+import { AddTournament } from 'src/app/tournaments/addTournament/addtournament.component';
+import { TeamComponent } from 'src/app/teams/teams.component';
 
 @NgModule({
-  imports:      [CommonModule],
-  declarations: [myFocus,SpinnerComponent],
-  exports:      [myFocus,SpinnerComponent],
-  providers:    []
+  imports:      [CommonModule,RouterModule],
+  declarations: [myFocus,SpinnerComponent,LobbiesComponent,TournamentDataComponent,TeamComponent],
+  exports:      [myFocus,SpinnerComponent,LobbiesComponent,TournamentDataComponent,TeamComponent],
+  providers:    [AuthGuard,LobbyService]
 })
 export class SharedModule { }

@@ -3,15 +3,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule,ReactiveFormsModule}  from '@angular/forms';
 import { SharedModule }   from '../shared/modules/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { TournamentService }  from '../services/tournamentservices';
-import { routing }  from './tournamentdata.routing';
-import { TournamentDataComponent } from './tournamentdata.component';
+import { LobbyService }  from '../services/lobbies.services';
+import { routing }  from './lobbies.routing';
 import { LobbiesComponent } from '../lobbies/lobbies.component';
-import {AddTournament} from './addTournament/addtournament.component'
 import { AuthGuard } from '../auth.guard';
-import { LobbyService } from '../services/lobbies.services';
-import { TeamService } from '../services/teams.services';
-
+import {AddLobby} from './addlobby/addlobby.component'
+import { Globals } from '../globals';
 
 @NgModule({
   imports: [
@@ -23,7 +20,7 @@ import { TeamService } from '../services/teams.services';
     ReactiveFormsModule,
     BrowserModule
   ],
-  declarations: [AddTournament],
-  providers:    [AuthGuard, TournamentService,LobbyService,TeamService]
+  declarations: [AddLobby],
+  providers:    [AuthGuard, LobbyService,Globals]
 })
-export class TournamentModule { }
+export class LobbyModule { }

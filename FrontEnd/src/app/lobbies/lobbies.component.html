@@ -1,0 +1,31 @@
+<h1>Lobby</h1>  
+<p *ngIf="!lobbylist"><em>Loading...</em></p>  
+<p> <a [routerLink]="['/addlobby']">Create New</a> </p>  
+<table class='table table-bordered' *ngIf="lobbylist">  
+    <thead style="background-color:green;font-weight:bold;color:white;">  
+        <tr>  
+            <th>LobbyID</th>  
+            <th>DateStart</th>  
+            <th>ScoreWinner</th>  
+            <!--<th>TournamentId</th>-->  
+            <th>Winner</th>
+            <th>ScoreLoser</th>
+            <th>Team Radiant</th>
+            <th>Team Dire</th>
+            <th>Actions</th>     
+        </tr>  
+    </thead>  
+    <tbody>  
+        <tr *ngFor="let lobby of lobbylist">  
+            <td>{{ lobby.id }}</td>  
+            <td>{{ lobby.dateStart}}</td>  
+            <td>{{ lobby.scoreWinner }}</td>  
+           <!-- <td>{{ lobby.tournamentId }}</td>-->  
+            <td>{{ lobby.winner }}</td>   
+            <td>{{ lobby.scoreLoser }}</td>   
+            <td>{{ lobby.radiant_team_name}}</td>  
+            <td>{{ lobby.dire_team_name }}</td>  
+            <td> <a [routerLink]="['/lobby/edit/',lobby.id]">Edit</a> | <a [routerLink]="" (click)="deleteLobbies(lobby.id)">Delete</a>  </td>  
+        </tr>  
+    </tbody>  
+</table> 

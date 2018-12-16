@@ -8,7 +8,7 @@ import {
 } from '@angular/http';  
 import {  
     TournamentService  
-} from '../services/tournamentservices'  
+} from '../services/tournamentservices'   
 import {  
     Router,  
     ActivatedRoute  
@@ -18,12 +18,12 @@ import {
     templateUrl: './tournamentdata.component.html'  
 })  
 export class TournamentDataComponent {  
-    public tournamentlist: TournamentList[];  
+    public tournamentlist: TournamentList[];   
     constructor(public http: Http, private _router: Router, private _tournamentService: TournamentService) {  
         this.getTournaments();  
     }  
     getTournaments() {  
-        this._tournamentService.getTournaments().subscribe(data => {
+        this._tournamentService.getTournamentsCreatedByUser().subscribe(data => {
         this.tournamentlist = data;
         console.log(this.tournamentlist);
         }, 
@@ -38,13 +38,18 @@ export class TournamentDataComponent {
                 this.getTournaments();  
             }, error => console.error(error))  
         }  
-    }  
+    }   
 }  
 interface TournamentList {  
     Id: number;  
     TournamentName: string;  
     Place: string;  
     Type: string;  
-    PrizePool: string;  
+    PrizePool: number;  
+    DateStart:string;
+    DateEnd:string;
+    Description:string;
+    Game:string;
     Lobbies:[];
 }  
+ 

@@ -20,52 +20,45 @@ import 'rxjs/add/observable/throw';
 
 
 @Injectable()  
-export class TournamentService {  
+export class LobbyService {  
     myAppUrl: string = "";  
     constructor(private _http: Http, private configService: ConfigService) {  
         this.myAppUrl = configService.getApiURI();
     }  
-    getTournaments() {  
+    getLobbies(TournamentID: number) {  
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         let authToken = localStorage.getItem('auth_token');
         headers.append('Authorization', `Bearer ${authToken}`);
-        return this._http.get(this.myAppUrl + "/tournament",{headers}).map((response: Response) => response.json()).catch(this.errorHandler);  
+        return this._http.get(this.myAppUrl + "/lobby/getLobbies/"+ TournamentID,{headers}).map((response: Response) => response.json()).catch(this.errorHandler);  
+    }    
+    getLobbyById(LobbyID: number) {  
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        let authToken = localStorage.getItem('auth_token');
+        headers.append('Authorization', `Bearer ${authToken}`);
+        return this._http.get(this.myAppUrl + "/lobby/getbyid/" + LobbyID,{headers}).map((response: Response) => response.json()).catch(this.errorHandler);
     }  
-    getTournamentsCreatedByUser() {  
+    deleteLobby(LobbyID: number) {  
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         let authToken = localStorage.getItem('auth_token');
         headers.append('Authorization', `Bearer ${authToken}`);
-        return this._http.get(this.myAppUrl + "/tournament/getcreatedbyuser",{headers}).map((response: Response) => response.json()).catch(this.errorHandler);  
+        return this._http.delete(this.myAppUrl + "/lobby/delete/" + LobbyID,{headers}).map((response: Response) => response.json()).catch(this.errorHandler);  
     }  
-    getTournamentById(TournamentID: number) {  
+    updateLobby(lobby: any) {  
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         let authToken = localStorage.getItem('auth_token');
         headers.append('Authorization', `Bearer ${authToken}`);
-        return this._http.get(this.myAppUrl + "/tournament/get-tournaments-by-id/" + TournamentID,{headers}).map((response: Response) => response.json()).catch(this.errorHandler)  
+        return this._http.post(this.myAppUrl + '/lobby/update', lobby,{headers}).map((response: Response) => response.json()).catch(this.errorHandler);  
     }  
-    deleteTournament(TournamentID: number) {  
+    saveLobby(lobby: any) {  
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         let authToken = localStorage.getItem('auth_token');
         headers.append('Authorization', `Bearer ${authToken}`);
-        return this._http.delete(this.myAppUrl + "/tournament/delete/" + TournamentID,{headers}).map((response: Response) => response.json()).catch(this.errorHandler);  
-    }  
-    updateTournament(tournament: any) {  
-        let headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-        let authToken = localStorage.getItem('auth_token');
-        headers.append('Authorization', `Bearer ${authToken}`);
-        return this._http.put(this.myAppUrl + '/tournament/update', tournament,{headers}).map((response: Response) => response.json()).catch(this.errorHandler);  
-    }  
-    saveTournament(tournament: any) {  
-        let headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-        let authToken = localStorage.getItem('auth_token');
-        headers.append('Authorization', `Bearer ${authToken}`);
-        return this._http.post(this.myAppUrl + '/tournament/create', tournament,{headers}).map((response: Response) => response.json()).catch(this.errorHandler)  
+        return this._http.post(this.myAppUrl + '/lobby/create', lobby,{headers}).map((response: Response) => response.json()).catch(this.errorHandler); 
     }  
     errorHandler(error: Response) {  
         
