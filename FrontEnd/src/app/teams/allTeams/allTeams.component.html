@@ -1,5 +1,6 @@
 <h1>Teams</h1>  
-<p *ngIf="!teamlist"><em>Loading...</em></p>   
+<p *ngIf="!teamlist"><em>Loading...</em></p>  
+<p> <a [routerLink]="['/addteam']">Create New</a> </p>  
 <table class='table table-bordered' *ngIf="teamlist">  
     <thead style="background-color:green;font-weight:bold;color:white;">  
         <tr>  
@@ -7,7 +8,7 @@
             <th>TeamName</th>  
             <th>Tag</th>  
             <th>NumberOfPlayers</th>     
-        
+            <th>Actions</th>
         </tr>  
     </thead>  
     <tbody>  
@@ -16,6 +17,7 @@
             <td>{{ team.teamName}}</td>  
             <td>{{ team.tag }}</td>  
             <td>{{ team.numberOfPlayers }}</td>      
+            <td> <a [routerLink]="['/team/edit/',team.id]">Edit</a> | <a [routerLink]="" (click)="deleteTeam(team.id)">Delete</a> | <a [routerLink]="['/players',team.id]">Show players</a>  </td>  
         </tr>  
     </tbody>  
 </table> 

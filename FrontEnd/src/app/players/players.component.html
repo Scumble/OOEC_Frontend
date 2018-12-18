@@ -1,0 +1,23 @@
+<h1>Players</h1>  
+<p *ngIf="!playerlist"><em>Loading...</em></p>  
+<p> <a [routerLink]="['/addplayer']">Create New</a> </p>  
+<table class='table table-bordered' *ngIf="playerlist">  
+    <thead style="background-color:green;font-weight:bold;color:white;">  
+        <tr>  
+            <th>PlayerID</th>  
+            <th>Name</th>  
+            <th>Position</th>  
+            <th>Age</th>       
+            <th>Actions</th>
+        </tr>  
+    </thead>  
+    <tbody>  
+        <tr *ngFor="let player of playerlist">  
+            <td>{{ player.id }}</td>  
+            <td>{{ player.name}}</td>  
+            <td>{{ player.position }}</td>  
+            <td>{{ player.age }}</td>     
+            <td> <a [routerLink]="['/player/edit/',player.id]">Edit</a> | <a [routerLink]="" (click)="deletePlayer(player.id)">Delete</a> </td>  
+        </tr>  
+    </tbody>  
+</table> 

@@ -11,5 +11,5 @@ export const routing: ModuleWithProviders = RouterModule.forChild([
   {path:'addtournament',component:AddTournament,canActivate: [AuthGuard]},
   {path: 'tournament/edit/:tournamentID',  component: AddTournament,canActivate: [AuthGuard]},
   {path: 'lobby/getcreatedbytournament/:tournamentID',  component: LobbiesComponent,canActivate: [AuthGuard]},
-  {path:'teams',component:TeamComponent,canActivate: [AuthGuard]}
+  {path:'teams/:tournamentID',component:TeamComponent,canActivate: [AuthGuard]}
 ]);

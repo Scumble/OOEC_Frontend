@@ -1,0 +1,30 @@
+<!DOCTYPE html>  
+<html>  
+  
+<head>  
+    <meta charset="utf-8" />  
+    <title></title>  
+</head>  
+  
+<body>  
+    <h1>{{title}}</h1>  
+    <h3>Team</h3>  
+    <hr />  
+    <form [formGroup]="teamForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>  
+        <div class="form-group row"> <label class=" control-label col-md-12" for="teamName">Team Name</label>  
+            <div class="col-md-4"> <input class="form-control" type="text" formControlName="teamName"> </div> <span class="text-danger" *ngIf="teamForm.hasError('required', 'teamName') && formDir.submitted">  
+Team Name is required.  
+</span> </div>  
+        <div class="form-group row"> <label class=" control-label col-md-12" for="tag">Tag</label>  
+            <div class="col-md-4"> <input class="form-control" type="text" formControlName="tag"> </div> <span class="text-danger" *ngIf="teamForm.hasError('required', 'tag') && formDir.submitted">  
+Tag is required.  
+</span> </div>  
+        <div class="form-group row"> <label class="control-label col-md-12" for="numberOfPlayers">Number of players</label>  
+            <div class="col-md-4"> <input class="form-control" type="text" formControlName="numberOfPlayers"> </div> <span class="text-danger" *ngIf="teamForm.hasError('required', 'numberOfPlayers') && formDir.submitted">  
+Number of players is required  
+</span> </div>  
+       
+<div class="form-group"> <button type="submit" class="btn btn-default">Save</button> <button class="btn" (click)="cancel()">Cancel</button> </div>  
+    </form>  
+</body>  
+</html>  

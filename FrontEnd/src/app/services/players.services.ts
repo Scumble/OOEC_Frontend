@@ -20,52 +20,45 @@ import 'rxjs/add/observable/throw';
 
 
 @Injectable()  
-export class TeamService {  
+export class PlayerService {  
     myAppUrl: string = "";  
     constructor(private _http: Http, private configService: ConfigService) {  
         this.myAppUrl = configService.getApiURI();
     }  
-    getTeams(TournamentID:number) {  
+    getPlayers(TeamID:number) {  
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         let authToken = localStorage.getItem('auth_token');
         headers.append('Authorization', `Bearer ${authToken}`);
-        return this._http.get(this.myAppUrl + "/team/getTeams/"+TournamentID ,{headers}).map((response: Response) => response.json()).catch(this.errorHandler);  
-    }    
-    getAllTeams() {  
-        let headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-        let authToken = localStorage.getItem('auth_token');
-        headers.append('Authorization', `Bearer ${authToken}`);
-        return this._http.get(this.myAppUrl + "/team" ,{headers}).map((response: Response) => response.json()).catch(this.errorHandler);  
+        return this._http.get(this.myAppUrl + "/player/getPlayers/"+TeamID,{headers}).map((response: Response) => response.json()).catch(this.errorHandler);  
     }  
-    getTeamById(TeamID: number) {  
+    getPlayerById(PlayerID: number) {  
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         let authToken = localStorage.getItem('auth_token');
         headers.append('Authorization', `Bearer ${authToken}`);
-        return this._http.get(this.myAppUrl + "/team/getbyid/" + TeamID,{headers}).map((response: Response) => response.json()).catch(this.errorHandler)  
+        return this._http.get(this.myAppUrl + "/player/getbyid/" + PlayerID,{headers}).map((response: Response) => response.json()).catch(this.errorHandler)  
     }  
-    deleteTeam(TeamID: number) {  
+    deletePlayer(PlayerID: number) {  
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         let authToken = localStorage.getItem('auth_token');
         headers.append('Authorization', `Bearer ${authToken}`);
-        return this._http.delete(this.myAppUrl + "/team/delete/" + TeamID,{headers}).map((response: Response) => response.json()).catch(this.errorHandler);  
+        return this._http.delete(this.myAppUrl + "/player/delete/" + PlayerID,{headers}).map((response: Response) => response.json()).catch(this.errorHandler);  
     }  
-    updateTeam(team: any) {  
+    updatePlayer(player: any) {  
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         let authToken = localStorage.getItem('auth_token');
         headers.append('Authorization', `Bearer ${authToken}`);
-        return this._http.put(this.myAppUrl + '/team/update', team,{headers}).map((response: Response) => response.json()).catch(this.errorHandler);  
+        return this._http.put(this.myAppUrl + '/player/update', player,{headers}).map((response: Response) => response.json()).catch(this.errorHandler);  
     }  
-    saveTeam(team: any) {  
+    savePlayer(player: any) {  
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         let authToken = localStorage.getItem('auth_token');
         headers.append('Authorization', `Bearer ${authToken}`);
-        return this._http.post(this.myAppUrl + '/team/create', team,{headers}).map((response: Response) => response.json()).catch(this.errorHandler)  
+        return this._http.post(this.myAppUrl + '/player/create', player,{headers}).map((response: Response) => response.json()).catch(this.errorHandler)  
     }  
     errorHandler(error: Response) {  
         

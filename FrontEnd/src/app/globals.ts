@@ -4,4 +4,5 @@ import { Injectable } from '@angular/core';
 export class Globals {
   isAdmin:boolean;
   TournamentId:number;
+  TeamId:number;
 }

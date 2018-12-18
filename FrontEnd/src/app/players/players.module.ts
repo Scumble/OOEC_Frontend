@@ -3,14 +3,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule,ReactiveFormsModule}  from '@angular/forms';
 import { SharedModule }   from '../shared/modules/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { routing }  from './teams.routing';
-import { TeamComponent } from './teams.component';
+import { routing }  from './players.routing';
+import { PlayerComponent } from './players.component';
 import { AuthGuard } from '../auth.guard';
 import { Globals } from '../globals';
-import { TeamService } from '../services/teams.services';
-import { AddTeam } from './addteams/addteams.component';
 import { PlayerService } from '../services/players.services';
-import { AllTeamComponent } from './allTeams/allTeams.component';
+import { AddPlayer } from './addPlayers/addplayers.component';
 
 @NgModule({
   imports: [
@@ -22,7 +20,7 @@ import { AllTeamComponent } from './allTeams/allTeams.component';
     ReactiveFormsModule,
     BrowserModule
   ],
-  declarations: [AddTeam,AllTeamComponent],
-  providers:    [AuthGuard, TeamService,Globals,PlayerService]
+  declarations: [AddPlayer],
+  providers:    [AuthGuard,Globals,PlayerService]
 })
-export class TeamModule { }
+export class PlayerModule { }

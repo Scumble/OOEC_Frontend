@@ -10,11 +10,12 @@ import { TournamentDataComponent } from 'src/app/tournaments/tournamentdata.comp
 import { AddLobby } from 'src/app/lobbies/addlobby/addlobby.component';
 import { AddTournament } from 'src/app/tournaments/addTournament/addtournament.component';
 import { TeamComponent } from 'src/app/teams/teams.component';
+import { PlayerComponent } from 'src/app/players/players.component';
 
 @NgModule({
   imports:      [CommonModule,RouterModule],
-  declarations: [myFocus,SpinnerComponent,LobbiesComponent,TournamentDataComponent,TeamComponent],
-  exports:      [myFocus,SpinnerComponent,LobbiesComponent,TournamentDataComponent,TeamComponent],
+  declarations: [myFocus,SpinnerComponent,LobbiesComponent,TournamentDataComponent,TeamComponent,PlayerComponent],
+  exports:      [myFocus,SpinnerComponent,LobbiesComponent,TournamentDataComponent,TeamComponent,PlayerComponent],
   providers:    [AuthGuard,LobbyService]
 })
 export class SharedModule { }

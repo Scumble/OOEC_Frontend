@@ -23,6 +23,9 @@ import {
 import {  
     LobbyService  
 } from '../../services/lobbies.services';  
+import {  
+    TeamService  
+  } from '../../services/teams.services'   
 import { Globals } from '../../globals';
 @Component({  
     templateUrl: './addlobby.component.html'  
@@ -33,7 +36,8 @@ export class AddLobby implements OnInit {
     id: number;  
     TournamentId:number;
     errorMessage: any;
-    constructor(private _fb: FormBuilder, private _avRoute: ActivatedRoute, private _lobbyService: LobbyService, private _router: Router,private globals:Globals) {
+    public teamlist: TeamList[];   
+    constructor(private _fb: FormBuilder, private _avRoute: ActivatedRoute, private _lobbyService: LobbyService, private _router: Router,private globals:Globals,private _teamService:TeamService) {
         if (this._avRoute.snapshot.params["lobbyID"]) {  
             this.id = this._avRoute.snapshot.params["lobbyID"];  
         }  
@@ -57,6 +61,16 @@ export class AddLobby implements OnInit {
             this.title = "Edit";  
             this._lobbyService.getLobbyById(this.id).subscribe(resp => this.lobbyForm.setValue(resp[0]), error => this.errorMessage = error); 
         } 
+        this.getAllTeams(); 
+    }  
+    getAllTeams() {  
+        this._teamService.getAllTeams().subscribe(data => {
+        this.teamlist = data;
+        console.log(this.teamlist);
+        }, 
+        error=> {
+            console.log(error);
+        })
     }  
     save() {  
         if (!this.lobbyForm.valid) {  
@@ -98,4 +112,14 @@ export class AddLobby implements OnInit {
         return this.lobbyForm.get('dire_team_name');  
     }
 }  
+interface TeamList {  
+    Id: number;  
+    TeamName:string;
+    Tag:string;
+    NumberOfPlayers:number;
+    RadiantLobbies:[],
+    DireLobbies:[],
+    Players:[]
+  }  
+  
 

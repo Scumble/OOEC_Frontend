@@ -21,14 +21,18 @@ import { UserModule } from './users/user.module';
 import { ConfigService } from './shared/utils/config.service';
 import { LobbyModule } from './lobbies/lobbies.module';
 import { TeamModule } from './teams/teams.module';
+import { ProTeamModule } from './external/proteams/proteams.module';
 import { SharedModule } from './shared/modules/shared.module';
+import { PlayerModule } from './players/players.module';
+
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    HomeComponent,
+    HomeComponent
   ],
   imports: [
     AccountModule,
@@ -38,6 +42,8 @@ import { SharedModule } from './shared/modules/shared.module';
     TeamModule,
     StreamModule,
     LobbyModule,
+    PlayerModule,
+    ProTeamModule,
     BrowserModule,
     FormsModule,
     HttpModule,

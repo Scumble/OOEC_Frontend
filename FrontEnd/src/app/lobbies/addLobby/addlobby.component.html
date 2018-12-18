@@ -32,11 +32,11 @@ Tournament Id is required
 Date Start is required  
 </span></div>
 <div class="form-group row"> <label class="control-label col-md-12" for="DateStart">Team Radiant</label>  
-    <div class="col-md-4"> <input class="form-control" type="text" formControlName="radiant_team_name"> </div> <span class="text-danger" *ngIf="lobbyForm.hasError('required', 'radiant_team_name') && formDir.submitted">  
+    <div class="col-md-4"> <select class="form-control" type="text" formControlName="radiant_team_name"><option *ngFor="let team of teamlist" [value]="team.teamName">{{team.teamName}}</option></select> </div> <span class="text-danger" *ngIf="lobbyForm.hasError('required', 'radiant_team_name') && formDir.submitted">  
 Team Radiant is required  
 </span></div>
 <div class="form-group row"> <label class="control-label col-md-12" for="DateStart">Team Dire</label>  
-    <div class="col-md-4"> <input class="form-control" type="text" formControlName="dire_team_name"> </div> <span class="text-danger" *ngIf="lobbyForm.hasError('required', 'dire_team_name') && formDir.submitted">  
+    <div class="col-md-4"> <select class="form-control" type="text" formControlName="dire_team_name"><option *ngFor="let team of teamlist">{{team.teamName}}</option></select> </div> <span class="text-danger" *ngIf="lobbyForm.hasError('required', 'dire_team_name') && formDir.submitted">  
 Team Dire is required  
 </span></div>
 

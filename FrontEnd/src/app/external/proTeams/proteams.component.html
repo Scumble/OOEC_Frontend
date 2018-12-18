@@ -1,0 +1,49 @@
+<h1>Pro Teams</h1>  
+<p *ngIf="!proteamlist"><em>Loading...</em></p>  
+<table class="table table-dark" *ngIf="proteamlist">  
+    <thead style="background-color:green;font-weight:bold;color:white;">  
+        <tr>  
+            <th>TeamID</th>  
+            <th>Image</th>
+            <th>Name</th>
+            <th>Tag</th>
+            <th>Rating</th>  
+            <th>Wins</th>  
+            <th>Losses</th>     
+            <th>Last_match_time</th>
+            <th>Actions</th>
+        </tr>  
+    </thead>  
+    <tbody>  
+        <tr *ngFor="let item of pagedItems ">  
+            <td>{{ item.team_Id }}</td>  
+            <img src="{{item.logo_url}}" class="img">
+            <td>{{ item.name}}</td>  
+            <td>{{ item.tag }}</td>  
+            <td>{{ item.rating }}</td>      
+            <td>{{ item.wins }}</td>     
+            <td>{{ item.losses }}</td>     
+            <td>{{ item.last_Match_Time }}</td>     
+            <td> <a [routerLink]="['/proplayers/',item.team_Id]">Show players</a> | <a [routerLink]="['/proMatches/',item.team_Id]">Show matches</a>  </td>  
+        </tr>  
+    </tbody> 
+</table> 
+<div class="center">
+<ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+    <li [ngClass]="{disabled:pager.currentPage === 1}">
+        <a (click)="setPage(1)">First</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === 1}">
+        <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+    </li>
+    <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+        <a (click)="setPage(page)">{{page}}</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+        <a (click)="setPage(pager.currentPage + 1)">Next</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+        <a (click)="setPage(pager.totalPages)">Last</a>
+    </li>
+</ul> 
+</div>

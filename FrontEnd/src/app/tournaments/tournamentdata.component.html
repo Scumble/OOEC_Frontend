@@ -27,7 +27,7 @@
             <td>{{ tour.dateEnd }}</td>
             <td>{{ tour.description }}</td>
             <td>{{ tour.game }}</td>         
-            <td> <a [routerLink]="['/tournament/edit/',tour.id]">Edit</a> | <a [routerLink]="" (click)="deleteTournament(tour.id)">Delete</a> | <a  [routerLink]="['/lobby/getcreatedbytournament/',tour.id]">Show lobby</a> |  <a  [routerLink]="['/teams']">Show teams</a>  </td>  
+            <td> <a [routerLink]="['/tournament/edit/',tour.id]">Edit</a> | <a [routerLink]="" (click)="deleteTournament(tour.id)">Delete</a> | <a  [routerLink]="['/lobby/getcreatedbytournament/',tour.id]">Show lobby</a> |  <a  [routerLink]="['/teams/',tour.id]">Show teams</a>  </td>  
         </tr>  
     </tbody>  
 </table> 
