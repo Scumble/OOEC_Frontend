@@ -1,19 +1,19 @@
-<h1>Tournament Data</h1>  
+<h1 translate>Tournaments data</h1>  
 <p *ngIf="!tournamentlist"><em>Loading...</em></p>  
-<p> <a [routerLink]="['/addtournament']">Create New</a> </p>  
+<p translate> <a translate [routerLink]="['/addtournament']">Create New</a> </p>  
 <table class='table table-bordered' *ngIf="tournamentlist">  
     <thead style="background-color:green;font-weight:bold;color:white;">  
         <tr>  
-            <th>TournamentID</th>  
-            <th>TournamentName</th>  
-            <th>Place</th>  
-            <th>Type</th>  
-            <th>PrizePool</th>
-            <th>DateStart</th>
-            <th>DateEnd</th>
-            <th>Description</th>
-            <th>Game</th>
-            <th>Actions</th>     
+            <th translate>TournamentID</th>  
+            <th translate>Tournament name</th>  
+            <th translate>Place</th>  
+            <th translate>Type</th>  
+            <th translate>Prize pool</th>
+            <th translate>DateStart</th>
+            <th translate>DateEnd</th>
+            <th translate>Description</th>
+            <th translate>Game</th>
+            <th translate>Actions</th>     
         </tr>  
     </thead>  
     <tbody>  
@@ -27,7 +27,7 @@
             <td>{{ tour.dateEnd }}</td>
             <td>{{ tour.description }}</td>
             <td>{{ tour.game }}</td>         
-            <td> <a [routerLink]="['/tournament/edit/',tour.id]">Edit</a> | <a [routerLink]="" (click)="deleteTournament(tour.id)">Delete</a> | <a  [routerLink]="['/lobby/getcreatedbytournament/',tour.id]">Show lobby</a> |  <a  [routerLink]="['/teams/',tour.id]">Show teams</a>  </td>  
+            <td> <a translate [routerLink]="['/tournament/edit/',tour.id]">Edit</a> | <a translate [routerLink]="" (click)="deleteTournament(tour.id)">Delete</a> | <a translate [routerLink]="['/lobby/getcreatedbytournament/',tour.id]">Show lobby</a> |  <a translate [routerLink]="['/teams/',tour.id]">Show teams</a>  </td>  
         </tr>  
     </tbody>  
 </table> 

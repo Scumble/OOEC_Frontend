@@ -1,14 +1,14 @@
-<h1>Players</h1>  
+<h1 translate>Players</h1>  
 <p *ngIf="!playerlist"><em>Loading...</em></p>  
-<p> <a [routerLink]="['/addplayer']">Create New</a> </p>  
+<p> <a translate [routerLink]="['/addplayer']">Create New Player</a> </p>  
 <table class='table table-bordered' *ngIf="playerlist">  
     <thead style="background-color:green;font-weight:bold;color:white;">  
         <tr>  
-            <th>PlayerID</th>  
-            <th>Name</th>  
-            <th>Position</th>  
-            <th>Age</th>       
-            <th>Actions</th>
+            <th translate >PlayerID</th>  
+            <th translate >Name</th>  
+            <th translate >Position</th>  
+            <th translate >Age</th>       
+            <th translate >Actions</th>
         </tr>  
     </thead>  
     <tbody>  
@@ -17,7 +17,7 @@
             <td>{{ player.name}}</td>  
             <td>{{ player.position }}</td>  
             <td>{{ player.age }}</td>     
-            <td> <a [routerLink]="['/player/edit/',player.id]">Edit</a> | <a [routerLink]="" (click)="deletePlayer(player.id)">Delete</a> </td>  
+            <td> <a translate  [routerLink]="['/player/edit/',player.id]">Edit</a> | <a translate [routerLink]="" (click)="deletePlayer(player.id)">Delete</a> </td>  
         </tr>  
     </tbody>  
 </table> 

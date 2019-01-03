@@ -7,19 +7,19 @@
 </head>  
   
 <body>  
-    <h1>{{title}}</h1>  
-    <h3>Lobby</h3>  
+    <h1 translate>{{title}}</h1>  
+    <h3 translate>Lobby</h3>  
     <hr />  
     <form [formGroup]="lobbyForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>  
-        <div class="form-group row"> <label class=" control-label col-md-12" for="Winner">Winner</label>  
+        <div class="form-group row"> <label translate class=" control-label col-md-12" for="Winner">Winner</label>  
             <div class="col-md-4"> <input class="form-control" type="text" formControlName="winner"> </div> <span class="text-danger" *ngIf="lobbyForm.hasError('required', 'winner') && formDir.submitted">  
 Winner is required.  
 </span> </div>  
-        <div class="form-group row"> <label class=" control-label col-md-12" for="PrizePool">Winner's Score</label>  
+        <div class="form-group row"> <label translate class=" control-label col-md-12" for="PrizePool">Score winner</label>  
             <div class="col-md-4"> <input class="form-control" type="text" formControlName="scoreWinner"> </div> <span class="text-danger" *ngIf="lobbyForm.hasError('required', 'scoreWinner') && formDir.submitted">  
 Winner's Score is required.  
 </span> </div>  
-        <div class="form-group row"> <label class="control-label col-md-12" for="ScoreLoser">Loser's Score</label>  
+        <div class="form-group row"> <label  translate class="control-label col-md-12" for="ScoreLoser">Score loser</label>  
             <div class="col-md-4"> <input class="form-control" type="text" formControlName="scoreLoser"> </div> <span class="text-danger" *ngIf="lobbyForm.hasError('required', 'scoreLoser') && formDir.submitted">  
 Loser's Score is required  
 </span> </div>  
@@ -27,15 +27,15 @@ Loser's Score is required
             <div class="col-md-4"> <input class="form-control" type="text" formControlName="tournamentId"> </div> <span class="text-danger" *ngIf="lobbyForm.hasError('required', 'tournamentId') && formDir.submitted">  
 Tournament Id is required  
 </span></div>-->
-<div class="form-group row"> <label class="control-label col-md-12" for="DateStart">Date Start</label>  
+<div class="form-group row"> <label translate class="control-label col-md-12" for="DateStart">Date Start</label>  
     <div class="col-md-4"> <input class="form-control" type="text" formControlName="dateStart"> </div> <span class="text-danger" *ngIf="lobbyForm.hasError('required', 'dateStart') && formDir.submitted">  
 Date Start is required  
 </span></div>
-<div class="form-group row"> <label class="control-label col-md-12" for="DateStart">Team Radiant</label>  
+<div class="form-group row"> <label translate class="control-label col-md-12" for="DateStart">Team Radiant</label>  
     <div class="col-md-4"> <select class="form-control" type="text" formControlName="radiant_team_name"><option *ngFor="let team of teamlist" [value]="team.teamName">{{team.teamName}}</option></select> </div> <span class="text-danger" *ngIf="lobbyForm.hasError('required', 'radiant_team_name') && formDir.submitted">  
 Team Radiant is required  
 </span></div>
-<div class="form-group row"> <label class="control-label col-md-12" for="DateStart">Team Dire</label>  
+<div class="form-group row"> <label translate class="control-label col-md-12" for="DateStart">Team Dire</label>  
     <div class="col-md-4"> <select class="form-control" type="text" formControlName="dire_team_name"><option *ngFor="let team of teamlist">{{team.teamName}}</option></select> </div> <span class="text-danger" *ngIf="lobbyForm.hasError('required', 'dire_team_name') && formDir.submitted">  
 Team Dire is required  
 </span></div>

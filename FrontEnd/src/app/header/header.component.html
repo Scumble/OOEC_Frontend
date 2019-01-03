@@ -8,39 +8,45 @@
       
         <ul *ngIf="status" class="navbar-nav mr-auto">
             <li class="nav-item">
-               <a class="nav-link" (click)="logout()" href="#">Logoff</a>
+               <a translate class="nav-link" (click)="logout()" href="#">Logoff</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" routerLinkActive="active" routerLink="/dashboard">Dashboard</a> 
+            <a translate class="nav-link" routerLinkActive="active" routerLink="/dashboard">Dashboard</a> 
             </li>         
             <li *ngIf="!globals.isAdmin" class="nav-item">
-              <a class="nav-link" routerLinkActive="active" routerLink="/tournaments">Tournaments</a> 
+              <a translate class="nav-link" routerLinkActive="active" routerLink="/tournaments">Tournaments</a> 
               </li> 
-              <li class="nav-item">
-                <a class="nav-link" routerLinkActive="active" routerLink="/allTeams">Teams</a> 
+              <li  *ngIf="!globals.isAdmin" class="nav-item">
+                <a translate class="nav-link" routerLinkActive="active" routerLink="/allTeams">Teams</a> 
                 </li>  
               <li *ngIf="globals.isAdmin" class="nav-item">
-                <a class="nav-link" routerLinkActive="active" routerLink="/users">Users</a> 
+                <a translate class="nav-link" routerLinkActive="active" routerLink="/users">Users</a> 
                 </li>  
               <li class="nav-item">
-                <a class="nav-link" routerLinkActive="active" routerLink="/streams">Watch stream</a> 
+                <a translate class="nav-link" routerLinkActive="active" routerLink="/streams">Watch stream</a> 
                 </li>       
-                <li class="nav-item">
-                  <a class="nav-link" routerLinkActive="active" routerLink="/proteams">Pro Teams</a> 
-                  </li>    
+                <li *ngIf="!globals.isAdmin" class="nav-item">
+                  <a translate class="nav-link" routerLinkActive="active" routerLink="/proteams">Pro Teams</a> 
+                </li>
+                <li>  <button (click)="switchLanguage('en')">en</button></li>    
+                
+                 <li><button (click)="switchLanguage('ukr')">ukr</button></li>
 
           </ul>
 
           <ul *ngIf="!status" class="nav navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" routerLinkActive="active" routerLink="/register">Email signup</a>
+                <a translate class="nav-link" routerLinkActive="active" routerLink="/register">Signup</a>
               </li>
             <li class="nav-item">
-              <a class="nav-link" routerLinkActive="active" routerLink="/login">Email login</a>
+              <a translate class="nav-link" routerLinkActive="active" routerLink="/login">Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" routerLinkActive="active" routerLink="/streams">Watch stream</a>
+              <a translate class="nav-link" routerLinkActive="active" routerLink="/streams">Watch stream</a>
             </li>
+            <li>  <button (click)="switchLanguage('en')">en</button></li>    
+                
+            <li><button (click)="switchLanguage('ukr')">ukr</button></li>
           </ul>
                      
     </div>

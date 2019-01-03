@@ -1,17 +1,16 @@
-<h1>Pro Teams</h1>  
+<h1 translate>Pro Teams</h1>  
 <p *ngIf="!proteamlist"><em>Loading...</em></p>  
 <table class="table table-dark" *ngIf="proteamlist">  
     <thead style="background-color:green;font-weight:bold;color:white;">  
         <tr>  
-            <th>TeamID</th>  
-            <th>Image</th>
-            <th>Name</th>
-            <th>Tag</th>
-            <th>Rating</th>  
-            <th>Wins</th>  
-            <th>Losses</th>     
-            <th>Last_match_time</th>
-            <th>Actions</th>
+            <th translate>TeamID</th>  
+            <th translate>Image</th>
+            <th translate>Name</th>
+            <th translate>Tag</th>
+            <th translate>Rating</th>  
+            <th translate>Wins</th>  
+            <th translate>Losses</th>     
+            <th translate>Actions</th>
         </tr>  
     </thead>  
     <tbody>  
@@ -22,9 +21,8 @@
             <td>{{ item.tag }}</td>  
             <td>{{ item.rating }}</td>      
             <td>{{ item.wins }}</td>     
-            <td>{{ item.losses }}</td>     
-            <td>{{ item.last_Match_Time }}</td>     
-            <td> <a [routerLink]="['/proplayers/',item.team_Id]">Show players</a> | <a [routerLink]="['/proMatches/',item.team_Id]">Show matches</a>  </td>  
+            <td>{{ item.losses }}</td>       
+            <td> <a translate [routerLink]="['/proplayers/',item.team_Id]">Show players</a> | <a translate [routerLink]="['/proMatches/',item.team_Id]">Show matches</a>  </td>  
         </tr>  
     </tbody> 
 </table> 

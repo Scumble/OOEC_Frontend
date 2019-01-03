@@ -23,6 +23,7 @@ import {
 import {  
     TournamentService  
 } from '../../services/tournamentservices';  
+import { TranslateService } from '@ngx-translate/core';
 @Component({  
     templateUrl: './addtournament.component.html'  
 })  
@@ -31,7 +32,7 @@ export class AddTournament implements OnInit {
     title: string = "Create";  
     id: number;  
     errorMessage: any;  
-    constructor(private _fb: FormBuilder, private _avRoute: ActivatedRoute, private _tournamentService: TournamentService, private _router: Router) {  
+    constructor(private _fb: FormBuilder, private _avRoute: ActivatedRoute, private _tournamentService: TournamentService, private _router: Router,private translate: TranslateService) {  
         if (this._avRoute.snapshot.params["tournamentID"]) {  
             this.id = this._avRoute.snapshot.params["tournamentID"];  
         }  

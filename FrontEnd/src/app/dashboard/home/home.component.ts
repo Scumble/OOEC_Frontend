@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { HomeDetails } from '../models/home.details.interface';
 import { DashboardService } from '../services/dashboard.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,9 @@ export class HomeComponent implements OnInit {
 
   homeDetails: HomeDetails;
 
-  constructor(private dashboardService: DashboardService) { }
+  constructor(private dashboardService: DashboardService,private translate:TranslateService) {
+     translate.setDefaultLang('en');
+   }
 
   ngOnInit() {
 

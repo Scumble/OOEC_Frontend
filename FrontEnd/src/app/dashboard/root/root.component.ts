@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Globals} from '../../globals'
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',

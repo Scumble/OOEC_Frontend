@@ -5,7 +5,7 @@ import { HttpModule, XHRBackend } from '@angular/http';
 import { AuthenticateXHRBackend } from './authenticate-xhr.backend';
 
 import { routing } from './app.routing';
-
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 /* App Root */
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -24,9 +24,12 @@ import { TeamModule } from './teams/teams.module';
 import { ProTeamModule } from './external/proteams/proteams.module';
 import { SharedModule } from './shared/modules/shared.module';
 import { PlayerModule } from './players/players.module';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-
-
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -38,8 +41,10 @@ import { PlayerModule } from './players/players.module';
     AccountModule,
     DashboardModule,
     TournamentModule,
+    HttpClientModule,
     UserModule,
     TeamModule,
+    SharedModule,
     StreamModule,
     LobbyModule,
     PlayerModule,
@@ -47,7 +52,14 @@ import { PlayerModule } from './players/players.module';
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing
+    routing,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [ConfigService, { 
     provide: XHRBackend, 

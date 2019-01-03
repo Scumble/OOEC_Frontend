@@ -18,10 +18,10 @@ import { TeamService } from '../services/teams.services';
     CommonModule,
     FormsModule,
     routing,
-    SharedModule,
     CommonModule,
     ReactiveFormsModule,
-    BrowserModule
+    BrowserModule,
+    SharedModule
   ],
   declarations: [AddTournament],
   providers:    [AuthGuard, TournamentService,LobbyService,TeamService]

@@ -1,6 +1,7 @@
 import {  
     Component,  
-    Inject  
+    Inject,  
+    OnInit
 } from '@angular/core';  
 import {  
     Http,  
@@ -13,15 +14,18 @@ import {
     Router,  
     ActivatedRoute  
 } from '@angular/router';  
+import { TranslateService } from '@ngx-translate/core';
 @Component({  
-    selector: 'tournamentdata',  
+    selector: 'app-tournamentdata',  
     templateUrl: './tournamentdata.component.html'  
 })  
-export class TournamentDataComponent {  
+export class TournamentDataComponent implements OnInit {  
     public tournamentlist: TournamentList[];   
-    constructor(public http: Http, private _router: Router, private _tournamentService: TournamentService) {  
-        this.getTournaments();  
+    constructor(public http: Http, private _router: Router, private _tournamentService: TournamentService,private translate:TranslateService) {  
+        this.getTournaments();
     }  
+    ngOnInit(){
+    }
     getTournaments() {  
         this._tournamentService.getTournamentsCreatedByUser().subscribe(data => {
         this.tournamentlist = data;

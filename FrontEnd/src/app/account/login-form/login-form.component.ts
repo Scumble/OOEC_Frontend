@@ -7,6 +7,7 @@ import { adminCredentials } from '../../shared/models/adminCredentials.interface
 import { UserService } from '../../shared/services/user.service';
 import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import {Globals} from '../../globals'
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login-form',
@@ -24,7 +25,9 @@ export class LoginFormComponent implements OnInit, OnDestroy {
   submitted: boolean = false;
   credentials: Credentials = { email: '', password: '' };
 
-  constructor(private userService: UserService, private router: Router,private activatedRoute: ActivatedRoute,private globals: Globals) { }
+  constructor(private userService: UserService, private router: Router,private activatedRoute: ActivatedRoute,private globals: Globals,private translate:TranslateService) {      
+    translate.setDefaultLang('en');
+  }
 
     ngOnInit() {
 
