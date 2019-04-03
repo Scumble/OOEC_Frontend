@@ -46,6 +46,13 @@ export class ProTeamService {
         headers.append('Authorization', `Bearer ${authToken}`);
         return this._http.get(this.myAppUrl + "/proteams/getTeamMatches/"+TeamId ,{headers}).map((response: Response) => response.json()).catch(this.errorHandler);  
     }
+    getTeamStatistics(MatchId:number) {
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        let authToken = localStorage.getItem('auth_token');
+        headers.append('Authorization', `Bearer ${authToken}`);
+        return this._http.get(this.myAppUrl + "/proteams/getTeamStatistics/"+MatchId ,{headers}).map((response: Response) => response.json()).catch(this.errorHandler);  
+    }
     errorHandler(error: Response) {  
         
         console.log(error);  

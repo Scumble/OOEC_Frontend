@@ -75,5 +75,14 @@
     "League Name":"Назва ліги",
     "Opposing Team Logo":"Лого суперників",
     "Opposing Team":"Суперники",
-    "Pro Team Players":"Професіональні гравці команд"
+    "Pro Team Players":"Професіональні гравці команд",
+    "Match Statistics":"Статистика по матчу",
+    "Players Name":"Нік гравця",
+    "Gold per min":"Золото за хвилину",
+    "XP per min":"XP за хвилину",
+    "Kills per min":"Вбивства за хвилину",
+    "Last hits":"Вбивство крипів за хвилину",
+    "Hero damage":"Урон героя",
+    "Hero healing":"Зцілення героя",
+    "Tower damage":"Урон тавера"
 }

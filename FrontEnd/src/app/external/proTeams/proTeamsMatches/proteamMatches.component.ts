@@ -24,9 +24,10 @@ import {
     TeamId:number;
     pager: any = {};
     pagedItems: any[];
-    public proteamMatcheslist: ProTeamMatchesList[];   
+    public proteamMatcheslist: [];   
     constructor(public http: Http, private _router: Router, private _proteamMatchesService: ProTeamService,private pagerService: PagerService,private _Activatedroute:ActivatedRoute) { 
        this.TeamId=this._Activatedroute.snapshot.params['teamID']; 
+       this.getTeamMatches(this.TeamId);
     }  
     ngOnInit() {
       this.getTeamMatches(this.TeamId);

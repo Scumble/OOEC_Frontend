@@ -53,6 +53,13 @@ export class UserService {
         headers.append('Authorization', `Bearer ${authToken}`);
         return this._http.post(this.myAppUrl + "/manage/unlockuser/" + UserId,{headers}).map((response: Response) => response.json()).catch(this.errorHandler);  
     }  
+    deleteUser(UserId: string) {  
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        let authToken = localStorage.getItem('auth_token');
+        headers.append('Authorization', `Bearer ${authToken}`);
+        return this._http.post(this.myAppUrl + "/manage/deleteuser/" + UserId,{headers}).map((response: Response) => response.json()).catch(this.errorHandler);  
+    }  
     errorHandler(error: Response) {  
         
         console.log(error);  

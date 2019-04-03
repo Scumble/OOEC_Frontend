@@ -16,11 +16,11 @@
 Winner is required.  
 </span> </div>  
         <div class="form-group row"> <label translate class=" control-label col-md-12" for="PrizePool">Score winner</label>  
-            <div class="col-md-4"> <input class="form-control" type="text" formControlName="scoreWinner"> </div> <span class="text-danger" *ngIf="lobbyForm.hasError('required', 'scoreWinner') && formDir.submitted">  
+            <div class="col-md-4"> <input class="form-control" type="number" formControlName="scoreWinner"> </div> <span class="text-danger" *ngIf="lobbyForm.hasError('required', 'scoreWinner') && formDir.submitted">  
 Winner's Score is required.  
 </span> </div>  
         <div class="form-group row"> <label  translate class="control-label col-md-12" for="ScoreLoser">Score loser</label>  
-            <div class="col-md-4"> <input class="form-control" type="text" formControlName="scoreLoser"> </div> <span class="text-danger" *ngIf="lobbyForm.hasError('required', 'scoreLoser') && formDir.submitted">  
+            <div class="col-md-4"> <input class="form-control" type="number" formControlName="scoreLoser"> </div> <span class="text-danger" *ngIf="lobbyForm.hasError('required', 'scoreLoser') && formDir.submitted">  
 Loser's Score is required  
 </span> </div>  
        <!-- <div class="form-group row"> <label class="control-label col-md-12" for="TournamentId">Tournament Id</label>  
@@ -28,7 +28,7 @@ Loser's Score is required
 Tournament Id is required  
 </span></div>-->
 <div class="form-group row"> <label translate class="control-label col-md-12" for="DateStart">Date Start</label>  
-    <div class="col-md-4"> <input class="form-control" type="text" formControlName="dateStart"> </div> <span class="text-danger" *ngIf="lobbyForm.hasError('required', 'dateStart') && formDir.submitted">  
+    <div class="col-md-4"> <input class="form-control" type="date" formControlName="dateStart"> </div> <span class="text-danger" *ngIf="lobbyForm.hasError('required', 'dateStart') && formDir.submitted">  
 Date Start is required  
 </span></div>
 <div class="form-group row"> <label translate class="control-label col-md-12" for="DateStart">Team Radiant</label>  

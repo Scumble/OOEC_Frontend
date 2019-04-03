@@ -16,7 +16,7 @@
 Place is required.  
 </span> </div>  
         <div class="form-group row"> <label translate class=" control-label col-md-12" for="PrizePool">Prize pool</label>  
-            <div class="col-md-4"> <input class="form-control" type="text" formControlName="prizePool"> </div> <span class="text-danger" *ngIf="tournamentForm.hasError('required', 'prizePool') && formDir.submitted">  
+            <div class="col-md-4"> <input class="form-control" type="number" formControlName="prizePool"> </div> <span class="text-danger" *ngIf="tournamentForm.hasError('required', 'prizePool') && formDir.submitted">  
 Prize Pool is required.  
 </span> </div>  
         <div class="form-group row"> <label translate class="control-label col-md-12" for="TournamentName">Tournament name</label>  
@@ -36,11 +36,11 @@ Description is required
 Game is required  
 </span></div>
 <div class="form-group row"> <label  translate class="control-label col-md-12" for="Type">DateStart</label>  
-    <div class="col-md-4"> <input class="form-control" type="text" formControlName="dateStart"> </div> <span class="text-danger" *ngIf="tournamentForm.hasError('required', 'dateStart') && formDir.submitted">  
+    <div class="col-md-4"> <input class="form-control" type="date" formControlName="dateStart"> </div> <span class="text-danger" *ngIf="tournamentForm.hasError('required', 'dateStart') && formDir.submitted">  
 Date Start is required  
 </span></div>
 <div class="form-group row"> <label translate class="control-label col-md-12" for="Type">DateEnd</label>  
-    <div class="col-md-4"> <input class="form-control" type="text" formControlName="dateEnd"> </div> <span class="text-danger" *ngIf="tournamentForm.hasError('required', 'dateEnd') && formDir.submitted">  
+    <div class="col-md-4"> <input class="form-control" type="date" formControlName="dateEnd"> </div> <span class="text-danger" *ngIf="tournamentForm.hasError('required', 'dateEnd') && formDir.submitted">  
 Date End is required  
 </span></div>
 <div class="form-group"> <button translate type="submit" class="btn btn-default">Save</button> <button  translate class="btn" (click)="cancel()">Cancel</button> </div>  

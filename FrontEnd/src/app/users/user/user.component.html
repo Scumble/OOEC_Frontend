@@ -24,7 +24,7 @@
             <td>{{ user.lockoutEnd }}</td> 
             <td>{{ user.securityStamp }}</td>   
             <td>{{ user.userName }}</td>       
-            <td> <a [routerLink]="" (click)="unlockUser(user.id)">Unlock User</a> | <a [routerLink]="" (click)="lockUser(user.id)">Lock User</a> </td>  
+            <td> <a [routerLink]="" (click)="unlockUser(user.id)">Unlock User</a> | <a [routerLink]="" (click)="lockUser(user.id)">Lock User</a> | <a [routerLink]="" (click)="deleteUser(user.id)">Delete User</a> </td>  
         </tr>  
     </tbody>  
 </table> 

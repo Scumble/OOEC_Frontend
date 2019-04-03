@@ -20,6 +20,7 @@ import { DatePipe } from '@angular/common';
 })  
 export class UserComponent {  
     public userlist: UserList[];  
+    errorMessage:any;
     constructor(public http: Http, private _router: Router, private _userService: UserService) {  
         this.getUsers();  
     }  
@@ -36,18 +37,26 @@ export class UserComponent {
         var ans = confirm("Do you want to lock user with Id: " + UserId);  
         if (ans) {  
             this._userService.lockUser(UserId).subscribe((data) => {  
-                this.getUsers();  
-            }, error => console.error(error))  
+                this._router.navigate(['/users']);  
+            }, error => this.errorMessage = error)  
         }  
     }  
     unlockUser(UserId: string) {  
         var ans = confirm("Do you want to lock user with Id: " + UserId);  
         if (ans) {  
             this._userService.unlockUser(UserId).subscribe((data) => {  
-                this.getUsers();  
-            }, error => console.error(error))  
+                this._router.navigate(['/users']);  
+            }, error => this.errorMessage = error)  
         }  
     }  
+    deleteUser(UserId: string) {  
+        var ans = confirm("Do you want to delete user with Id: " + UserId);  
+        if (ans) {  
+            this._userService.deleteUser(UserId).subscribe((data) => {  
+                this._router.navigate(['/users']);  
+            }, error => this.errorMessage = error)  
+        }  
+    } 
 }  
 interface UserList {  
     UserId: string;  

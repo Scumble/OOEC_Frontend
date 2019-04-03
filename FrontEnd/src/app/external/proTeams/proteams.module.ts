@@ -10,6 +10,7 @@ import { ProTeamService } from '../../services/proteams.services';
 import {PagerService} from '../../shared/services/page.service'
 import { ProTeamPlayersComponent } from './proTeamsPlayers/proteamplayers.component';
 import { ProTeamMatchesComponent } from './proTeamsMatches/proteamMatches.component';
+import { ProTeamStatisticsComponent } from './proTeamsStatistics/proteamstatistics.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,7 @@ import { ProTeamMatchesComponent } from './proTeamsMatches/proteamMatches.compon
     ReactiveFormsModule,
     BrowserModule
   ],
-  declarations: [ProTeamComponent,ProTeamPlayersComponent,ProTeamMatchesComponent],
+  declarations: [ProTeamComponent,ProTeamPlayersComponent,ProTeamMatchesComponent,ProTeamStatisticsComponent],
   providers:    [AuthGuard, ProTeamService,PagerService],
   bootstrap: [ProTeamComponent]
 })

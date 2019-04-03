@@ -1,0 +1,31 @@
+<h1 translate>Match Statistics</h1>  
+<p *ngIf="!proteamstatisticslist"><em>Loading...</em></p>  
+<table class="table table-dark" *ngIf="proteamstatisticslist">  
+    <thead style="background-color:green;font-weight:bold;color:white;">  
+        <tr>  
+            <th translate>PlayerID</th>  
+            <th translate>Players Name</th>
+            <th translate>Gold per min</th>
+            <th translate>XP per min</th>
+            <th translate>Kills per min</th>
+            <th translate>Last hits</th>
+            <th translate>Hero damage</th>
+            <th translate>Hero healing</th>
+            <th translate>Tower damage</th>
+        </tr>  
+    </thead>  
+    <tbody>  
+        <tr *ngFor="let item of proteamstatisticslist ">  
+            <td>{{ item.account_id }}</td>  
+            <td>{{ item.name }}</td>  
+            <td>{{ item.gold_per_min}}</td>  
+            <td>{{ item.xp_per_min}}</td>     
+            <td>{{ item.kills_per_min }}</td>     
+            <td>{{ item.last_hits }}</td> 
+            <td>{{ item.hero_damage }}</td>   
+            <td>{{ item.hero_healing }}</td>   
+            <td>{{item.tower_damage}}</td>
+        </tr>  
+        
+    </tbody> 
+</table> 

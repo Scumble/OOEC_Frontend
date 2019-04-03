@@ -22,7 +22,7 @@ import {PagerService} from '../../shared/services/page.service'
 export class ProTeamComponent {  
   pager: any = {};
   pagedItems: any[];
-  public proteamlist: ProTeamList[];   
+  public proteamlist: [];   
   constructor(public http: Http, private _router: Router, private _proteamService: ProTeamService,private pagerService: PagerService) {  
     this.getTeams();  
   }  
